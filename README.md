@@ -5,9 +5,9 @@
 Protect portfolio downside and collect granular pricing data; project uses:
 - Coinbase Pro websocket for ticker streaming
 - MongoDB for data collection and storage
-- Pydantic for serialization
+- pydantic for serialization
 - Twilio for trade and extreme price action notifications
 
 
 @author: Grant Murray
-@date: 2020-11-02
+@originally-authored: 2020-11-02
