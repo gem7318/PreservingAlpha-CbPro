@@ -8,3 +8,4 @@ alpha.toml
 /**/sandbox/**
 /data/**
 /.idea/**
+/**/__pycache__/**
