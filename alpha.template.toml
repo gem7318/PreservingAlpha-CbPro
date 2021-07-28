@@ -1,0 +1,83 @@
+
+# ==========================================
+# --- PreservingAlpha Configuration File ---
+# ==========================================
+
+# -- Ticker Feed --
+[websocket]
+    # :: defaults
+    url="wss://ws-feed.pro.coinbase.com"
+    channels=['ticker']
+    products=['BTC-USD', 'ETH-USD', 'MATIC-USD', 'EOS-USD']
+
+
+# -- Mongo Auth --
+[mongo]
+    # :: defaults
+    db='coinbase'
+    alias='coinbase'
+    w='majority'
+    # ---------------
+    host='<REQUIRED>'
+
+
+# -- Twilio Auth: Event Notifications --
+[twilio]
+    username='<REQUIRED>'
+    password='<REQUIRED>'
+    _from='<REQUIRED>'     # string ('+01234567890')
+    distro=['<REQUIRED>']  # 10-digit integer (xxx-xxx-xxxx); no quotes
+
+# -- Trading Strategies by Portfolio --
+[portfolios]
+
+    default = 'primary'  # default account name if not provided to API
+
+    # A Single Coinbase Pro portfolio
+    [portfolios.primary]
+
+        # -- Asset --
+        asset-id = ''            # asset to trade against vs. USD (i.e. 'BTC')
+        account-allocation = 1   # percentage of account to execute strategy with
+
+        # -- API Auth: Portfolio-Specific --
+        [portfolios.primary.auth]
+        passphrase='<REQUIRED>'
+        key='<REQUIRED>'
+        secret='<REQUIRED>'
+
+        # == Sell (example) ==
+        [portfolios.primary.sell]
+
+        # (example)
+        momentum = [
+            [
+                ['dema', '15'],     # DEMA(15m)
+                ['dema', '30'],     # vs DEMA(30m)
+                ['0.95'],           # is <= 0.95
+            ],
+            [
+                ['dema*', '2'],     # DEMA(2h)
+                ['dema*', '1'],     # vs DEMA(1h)
+                ['0.98'],           # is <= 0.98
+            ],
+            [
+                ['price-last'],     # Current Ticker Price
+                ['price'],          # vs Price Paid
+                ['1.03*'],          # is greater than 1.03
+            ],
+        ]
+
+        # (example)
+        stop-loss = [
+            [
+                ['price-last'],     # price purchased
+                ['price'],          # vs current ticker price
+                ['0.98'],           # is less than 0.98
+            ]
+        ]
+
+
+[time-out]
+    order = 20
+    ticker = 20

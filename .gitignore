@@ -1,0 +1,10 @@
+
+# PreservingAlpha-CbPro
+alpha.toml
+
+
+# GEM7318
+/tmp/**
+/**/sandbox/**
+/data/**
+/.idea/**
