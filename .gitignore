@@ -9,3 +9,4 @@ alpha.toml
 /data/**
 /.idea/**
 /**/__pycache__/**
+/**/portfolio.py
