@@ -32,14 +32,6 @@ TICKER_DIR = TMP_DIR / 'ticker'
 BOOK_DIR = TMP_DIR / 'book'
 IS_RUNNING = TICKER_DIR / 'running.txt'
 
-# -- Mongo Connection Arguments --
-MONGO_URI = "mongodb+srv://gem7318:Currents203%21@coinbase.gkkvg.mongodb.net/coinbase?retryWrites=true&w=majority"
-MONGO_KWARGS = {
-    'db': 'coinbase',
-    'alias': 'coinbase',
-    'host': 'mongodb+srv://gem7318:Currents203%21@coinbase.gkkvg.mongodb.net',
-    'w': 'majority',
-}
 
 # -- Static Price Information --
 PRICES_JSON = {p.stem: p for p in TICKER_DIR.iterdir() if p.suffix == '.json'}
