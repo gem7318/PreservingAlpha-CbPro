@@ -8,6 +8,8 @@ Protect portfolio downside and collect granular pricing data; project uses:
 - pydantic for serialization
 - Twilio for trade and extreme price action notifications
 
+Light detail on execution mechanics in [src/workers/README.md](src/workers).
 
 @author: Grant Murray
+
 @originally-authored: 2020-11-02
